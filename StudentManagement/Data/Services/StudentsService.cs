@@ -18,24 +18,31 @@ namespace StudentManagement.Data.Services
             return result;
         }
 
-        public Task AddAsync(Students students)
+        public async Task AddAsync(Students students)
         {
-            throw new NotImplementedException();
+            await _context.Students.AddAsync(students);
+            await _context.SaveChangesAsync(); 
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Students.FirstOrDefaultAsync(x => x.Id == id);
+            _context.Students.Remove(result);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<Students> GetByIdAsync(int id)
+        public async Task<Students> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Students.FirstOrDefaultAsync(x => x.Id == id);
+            return result;
         }
 
-        public Task<Students> UpdateAsync(int id, Students students)
+        public async Task<Students> UpdateAsync(int id, Students newStudent)
         {
-            throw new NotImplementedException();
+            _context.Update(newStudent);
+            await _context.SaveChangesAsync();
+            return newStudent;
+           
         }
     }
 }

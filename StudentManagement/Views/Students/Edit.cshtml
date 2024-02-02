@@ -1,0 +1,35 @@
+﻿@model Students
+@{
+	ViewData["Title"] = "Edit a Student";
+}
+
+<div class="row">
+	<div class="col-md-8 offset-2">
+		<p>
+			<h4>Edit for @Model.Name</h4>
+		</p>
+		<div class="row">
+			<div class="col-md-10 offset-1">
+				<form asp-action="Edit">
+					<div class="mb-3">
+						<label asp-for="Name" class="form-label"></label>
+						<input asp-for="Name" class="form-control" />
+					</div>
+					<div class="mb-3">
+						<label asp-for="Prodi" class="form-label"></label>
+						<input asp-for="Prodi" class="form-control" />
+					</div>
+					<div class="mb-3">
+						<label asp-for="Address" class="form-label"></label>
+						<input asp-for="Address" class="form-control" />
+					</div>
+					<div class="mb-3 d-flex">
+						<input type="submit" value="Edit" class="btn btn-primary" />
+						<a asp-action="Index" class="btn btn-outline-secondary ms-auto">Show All</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</div>
