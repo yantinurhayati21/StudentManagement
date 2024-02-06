@@ -1,0 +1,22 @@
+﻿@model Course
+
+@{
+    ViewData["Title"] = "Delete Course";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <h4>Delete Course for @Model.CourseName</h4>
+        <div class="mb-3">
+            <label asp-for="CourseName" class="form-label"></label>
+            <input asp-for="CourseName" class="form-control" readonly />
+        </div>
+        <div class="mb-3">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Confirm" class="btn btn-danger">
+                <a asp-action="Index" class="btn btn-outline-secondary ms-auto">Show All</a>
+            </form>
+        </div>
+    </div>
+</div>

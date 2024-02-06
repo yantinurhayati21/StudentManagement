@@ -1,0 +1,22 @@
+﻿@model Course
+
+@{
+    ViewData["Title"] = "Edit Course";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <h4>Edit Course</h4>
+        <form asp-action="Edit">
+            <div class="mb-3">
+                <label asp-for="CourseName" class="form-label"></label>
+                <input asp-for="CourseName" class="form-control" />
+                <span asp-validation-for="CourseName" class="text-danger"></span>
+            </div>
+            <div class="mb-3 d-flex">
+                <input type="submit" value="Edit" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-outline-secondary ms-auto">Show All</a>
+            </div>
+        </form>
+    </div>
+</div>

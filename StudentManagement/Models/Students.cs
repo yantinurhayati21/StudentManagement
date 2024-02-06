@@ -12,5 +12,8 @@ namespace StudentManagement.Models
 		public string Prodi { get; set; }
 		[Required(ErrorMessage = "Address is required")]
 		public string Address { get; set; }
+
+        // Navigation property to represent the many-to-many relationship
+        public ICollection<StudentCourse> StudentCourses { get; set; }
     }
 }

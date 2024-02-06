@@ -1,0 +1,29 @@
+﻿@model Course
+
+@{
+    ViewData["Title"] = "Details for " + @Model.CourseName;
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <h4>Details for @Model.CourseName</h4>
+        <div class="mb-3">
+            <label asp-for="CourseName" class="form-label"></label>
+            <input asp-for="CourseName" class="form-control" readonly />
+        </div>
+
+        <div class="mb-3">
+            <h5>Enrolled Students</h5>
+            <ul>
+                @foreach (var studentCourse in Model.StudentCourses)
+                {
+                    <li>@studentCourse.Student.Name</li>
+                }
+            </ul>
+        </div>
+
+        <div class="mb-3">
+            <a asp-action="Index" class="btn btn-outline-secondary">Show All Courses</a>
+        </div>
+    </div>
+</div>
